@@ -1,31 +1,68 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Ahon CBT
-Ahon is designed to introduce Cognitive Behavioural Therapy (CBT) to manage anxiety and depression. It walks you through how to keep track of distorted thoughts and how to neutralize it.
+## Available Scripts
 
-## Minimum Viable Product (MVP)
-- As a user, I can create an entry of my automatic thoughts. 
-- As a user, I can match a cognitive distortion type to my automatic thoughts. 
-- As a user, I can challenge my automatic thoughts with more rational thoughts. 
-- As a user, I can generate an alternative thought based on the a cognitive distortion  I’ve identified and challenged my initial automatic thoughts
-- As a user, I can view a summary of all my thought entries.
+In the project directory, you can run:
 
-## Stretch Goals
+### `npm start`
 
-### Thought Management
-- As a user, I can edit my thought entries.
-- As a user, I can delete my thought entries.
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Account Management
-- As a user, I can register for an account. 
-- As a user, I can login to my account and retrieve all my entries from any device.
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-### Content Management System
-- As a user, I can read useful articles about CBT.
+### `npm test`
 
-### Neural Network 
-- As a user, I will automatically suggested a cognitive distortion based on the automatic thoughts I’ve recorded. 
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
-## Psuedo Code
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-![Flow chart of Ahon components and logic](https://i.imgur.com/PKBkovV.jpg)
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
