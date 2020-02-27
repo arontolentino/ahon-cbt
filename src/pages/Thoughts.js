@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 
 class Thoughts extends Component {
+	state = {
+		data: []
+	};
+
 	render() {
-		return <h1>Thoughts</h1>;
+		return (
+			<ul>
+				{this.props.thoughts.map(thought => {
+					return <li key={thought.id}>{thought.data.content}</li>;
+				})}
+			</ul>
+		);
 	}
 }
 

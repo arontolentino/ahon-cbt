@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import firebase from './config/firebase';
 
 import Login from './pages/user/Login';
 import Register from './pages/user/Register';
@@ -21,19 +22,31 @@ import EntryDetail from './pages/entry/EntryDetail';
 
 class App extends Component {
 	state = {
-		thoughts: [],
-		entry: {
-			thought: '',
-			distortions: [],
-			result: '',
-			challenge: '',
-			alternative: ''
-		},
-		activeNav: ''
+		thoughts: []
 	};
 
 	componentDidMount() {
-		console.log('Component did mount!');
+		const db = firebase.firestore();
+
+		db.collection('thoughts')
+			.orderBy('date', 'desc')
+			.onSnapshot(querySnapshot => {
+				const newThoughts = [];
+
+				querySnapshot.forEach(function(doc) {
+					console.log(doc.data());
+					newThoughts.push({
+						data: doc.data(),
+						id: doc.id
+					});
+				});
+
+				this.setState({
+					thoughts: newThoughts
+				});
+
+				console.log(this.state.thoughts);
+			});
 	}
 
 	render() {
@@ -47,7 +60,10 @@ class App extends Component {
 					<Route path="/register" component={Register} />
 					<Route path="/walkthrough" component={Walkthrough} />
 
-					<Route path="/thoughts" component={Thoughts} />
+					<Route
+						path="/thoughts"
+						render={() => <Thoughts thoughts={this.state.thoughts} />}
+					/>
 					<Route path="/learn" component={Learn} />
 					<Route path="/settings" component={Settings} />
 
