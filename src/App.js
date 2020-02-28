@@ -22,14 +22,24 @@ import EntryDetail from './pages/entry/EntryDetail';
 
 class App extends Component {
 	state = {
-		thoughts: []
+		thoughts: [],
+		user: null
 	};
 
 	componentDidMount() {
 		const db = firebase.firestore();
+		const auth = firebase.auth();
 
+		// Firebase Auth listener
+		auth.onAuthStateChanged(user => {
+			if (user) {
+				this.setState({ user: user.uid });
+			}
+		});
+
+		// Firestore real-time DB listener
 		db.collection('thoughts')
-			.orderBy('date', 'desc')
+			.orderBy('date')
 			.onSnapshot(querySnapshot => {
 				const newThoughts = [];
 
@@ -49,9 +59,15 @@ class App extends Component {
 			});
 	}
 
+	onLogout = e => {
+		// e.preventDefault();
+		firebase.auth().signOut();
+	};
+
 	render() {
 		return (
 			<Router>
+				<button onClick={this.onLogout}>Sign Out</button>
 				<Switch>
 					<Route path="/" exact />
 
