@@ -35,7 +35,7 @@ class Register extends Component {
 
 	render() {
 		return (
-			<div className="authForm">
+			<div className="register container">
 				<h1>Register</h1>
 				<form className="authContainer">
 					<input
@@ -59,7 +59,7 @@ class Register extends Component {
 						name="password"
 						onChange={this.onInputValueChange}
 					/>
-					<button className="authBtn" onClick={this.onRegister}>
+					<button className="btn" onClick={this.onRegister}>
 						Continue
 					</button>
 				</form>

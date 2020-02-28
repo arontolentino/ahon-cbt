@@ -196,17 +196,51 @@ body {
 }
 
 h1 {
-	font-size: 3.7rem;
+	font-size: 4rem;
 	font-weight: 800;
 	margin-bottom: 2rem;
 	color: #454f63;
+}
+
+p {
+	font-size: 1.5rem;
+	line-height: 2.4rem;
+	color: #454f63;
+}
+
+.btn {
+	font-size: 1.3rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+	background: #665eff;
+	border-radius: 10px;
+	border: none;
+	padding: 1.5rem 0;
+	width: 100%;
+}
+
+.btnSecondary {
+	background: #454f63;
+}
+
+/**************/
+/*** SPLASH ***/
+/**************/
+
+.splash .btn:first-of-type {
+	margin-bottom: 1.5rem;
+}
+
+.splash p {
+	margin-bottom: 3.5rem;
 }
 
 /*********************/
 /*** AUTH PAGES ***/
 /*********************/
 
-.authForm {
+.container {
 	height: 100vh;
 	padding: 2.5rem;
 	background-color: #f7f7fa;
@@ -233,16 +267,4 @@ h1 {
 
 .authInput::placeholder {
 	color: hsla(221, 16%, 55%, 0.56);
-}
-
-.authBtn {
-	font-size: 1.3rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	color: #fff;
-	background: #665eff;
-	border-radius: 10px;
-	border: none;
-	padding: 1.5rem 0;
-	width: 100%;
 }

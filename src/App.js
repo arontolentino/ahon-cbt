@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import firebase from './config/firebase';
 
+import Splash from './pages/user/Splash';
 import Login from './pages/user/Login';
 import Register from './pages/user/Register';
 import Walkthrough from './pages/user/Walkthrough';
@@ -68,7 +69,7 @@ class App extends Component {
 		return (
 			<Router>
 				<Switch>
-					<Route path="/" exact />
+					<Route path="/" exact component={Splash} />
 
 					<Route path="/login" component={Login} />
 

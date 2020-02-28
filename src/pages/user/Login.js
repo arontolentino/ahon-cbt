@@ -33,7 +33,7 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div className="authForm">
+			<div className="login container">
 				<h1>Login</h1>
 				<form className="authContainer">
 					<input
@@ -50,7 +50,7 @@ class Login extends Component {
 						name="password"
 						onChange={this.onInputValueChange}
 					/>
-					<button className="authBtn" onClick={this.onLogin}>
+					<button className="btn" onClick={this.onLogin}>
 						Continue
 					</button>
 				</form>
