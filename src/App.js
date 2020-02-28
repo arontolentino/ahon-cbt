@@ -67,7 +67,6 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
-				<button onClick={this.onLogout}>Sign Out</button>
 				<Switch>
 					<Route path="/" exact />
 

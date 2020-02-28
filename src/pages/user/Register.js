@@ -35,21 +35,35 @@ class Register extends Component {
 
 	render() {
 		return (
-			<form>
-				<input
-					type="email"
-					placholder="email"
-					name="email"
-					onChange={this.onInputValueChange}
-				/>
-				<input
-					type="password"
-					placholder="password"
-					name="password"
-					onChange={this.onInputValueChange}
-				/>
-				<button onClick={this.onRegister}>Register</button>
-			</form>
+			<div className="authForm">
+				<h1>Register</h1>
+				<form className="authContainer">
+					<input
+						type="text"
+						placeholder="Name"
+						className="authInput"
+						name="name"
+						onChange={this.onInputValueChange}
+					/>
+					<input
+						type="email"
+						placeholder="Email"
+						className="authInput"
+						name="email"
+						onChange={this.onInputValueChange}
+					/>
+					<input
+						type="password"
+						placeholder="Password"
+						className="authInput"
+						name="password"
+						onChange={this.onInputValueChange}
+					/>
+					<button className="authBtn" onClick={this.onRegister}>
+						Continue
+					</button>
+				</form>
+			</div>
 		);
 	}
 }
