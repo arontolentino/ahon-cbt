@@ -224,6 +224,12 @@ p {
 	background: #454f63;
 }
 
+.backBtn {
+	position: absolute;
+	top: 5rem;
+	font-size: 2rem;
+}
+
 /**************/
 /*** SPLASH ***/
 /**************/
@@ -248,6 +254,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	position: relative;
 }
 
 .authContainer {

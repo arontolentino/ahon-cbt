@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-// eslint-disable-next-line
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+
 import firebase from '../../config/firebase';
 
 class Register extends Component {
@@ -36,6 +39,9 @@ class Register extends Component {
 	render() {
 		return (
 			<div className="register container">
+				<div className="backBtn" onClick={() => this.props.history.goBack()}>
+					<FontAwesomeIcon icon={faArrowLeft} />
+				</div>
 				<h1>Register</h1>
 				<form className="authContainer">
 					<input
@@ -68,4 +74,4 @@ class Register extends Component {
 	}
 }
 
-export default Register;
+export default withRouter(Register);
