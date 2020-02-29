@@ -38,8 +38,11 @@ class Register extends Component {
 
 	render() {
 		return (
-			<div className="register container">
-				<div className="backBtn" onClick={() => this.props.history.goBack()}>
+			<div className="auth container">
+				<div
+					className="authBackBtn"
+					onClick={() => this.props.history.goBack()}
+				>
 					<FontAwesomeIcon icon={faArrowLeft} />
 				</div>
 				<h1>Register</h1>

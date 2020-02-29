@@ -193,17 +193,17 @@ html {
 
 body {
 	font-family: 'Montserrat';
+	background-color: #f7f7fa;
 }
 
 h1 {
 	font-size: 4rem;
 	font-weight: 800;
-	margin-bottom: 2rem;
 	color: #454f63;
 }
 
 p {
-	font-size: 1.5rem;
+	font-size: 1.4rem;
 	line-height: 2.4rem;
 	color: #454f63;
 }
@@ -225,14 +225,35 @@ p {
 }
 
 .backBtn {
+	font-size: 2rem;
+	color: #454f63;
+	margin-bottom: 1.5rem;
+}
+
+.authBackBtn {
 	position: absolute;
 	top: 5rem;
 	font-size: 2rem;
+	color: #454f63;
+}
+
+.container {
+	height: 100%;
+	padding: 2.5rem;
+	background-color: #f7f7fa;
+	display: flex;
 }
 
 /**************/
 /*** SPLASH ***/
 /**************/
+
+.splash {
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	height: 100vh;
+}
 
 .splash .btn:first-of-type {
 	margin-bottom: 1.5rem;
@@ -242,19 +263,20 @@ p {
 	margin-bottom: 3.5rem;
 }
 
-/*********************/
+/******************/
 /*** AUTH PAGES ***/
-/*********************/
+/******************/
 
-.container {
-	height: 100vh;
-	padding: 2.5rem;
-	background-color: #f7f7fa;
-	text-align: center;
-	display: flex;
+.auth {
 	flex-direction: column;
 	justify-content: center;
 	position: relative;
+	text-align: center;
+	height: 100vh;
+}
+
+.auth h1 {
+	margin-bottom: 2rem;
 }
 
 .authContainer {
@@ -274,4 +296,75 @@ p {
 
 .authInput::placeholder {
 	color: hsla(221, 16%, 55%, 0.56);
+}
+
+/**************/
+/*** HEADER ***/
+/**************/
+
+.header {
+	background: #fff;
+	box-shadow: 0 4px 16px rgba(69, 91, 99, 0.08);
+	padding: 3rem 2rem 1.5rem 2rem;
+	position: fixed;
+	width: 100%;
+}
+
+/****************/
+/*** THOUGHTS ***/
+/****************/
+
+.thoughtsContainer {
+	padding-top: 134.5px;
+}
+
+.thoughtsContainer ul {
+	padding-top: 2.5rem;
+	list-style: none;
+}
+
+/********************/
+/*** CARD ***/
+/********************/
+
+.card {
+	background: #fff;
+	padding: 0.75rem 0 1rem 0;
+	border-radius: 10px;
+}
+
+.card:not(:last-child) {
+	margin-bottom: 2rem;
+}
+
+.cardHeader {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #f4f4f6;
+	padding: 0 2rem 0.25rem 2rem;
+}
+
+.cardHeader p {
+	font-size: 1.2rem;
+}
+
+.cardTitle {
+	text-transform: uppercase;
+}
+
+.cardContent {
+	padding: 1.5rem 2rem;
+}
+
+.cardResult {
+	background: #f7f7fa;
+	margin: 0 1.2rem;
+	padding: 0.75rem 1.4rem;
+	border-radius: 10px;
+}
+
+.cardResult p {
+	font-size: 1.3rem;
+	color: #454f63;
+	font-weight: 700;
 }

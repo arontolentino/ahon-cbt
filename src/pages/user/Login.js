@@ -23,6 +23,7 @@ class Login extends Component {
 			.then(() => {
 				console.log('User is signed in!');
 				this.setState({});
+				this.props.history.push('/thoughts');
 			})
 			.catch(error => {
 				console.log(error);
@@ -38,8 +39,11 @@ class Login extends Component {
 
 	render() {
 		return (
-			<div className="login container">
-				<div className="backBtn" onClick={() => this.props.history.goBack()}>
+			<div className="auth container">
+				<div
+					className="authBackBtn"
+					onClick={() => this.props.history.goBack()}
+				>
 					<FontAwesomeIcon icon={faArrowLeft} />
 				</div>
 				<h1>Login</h1>
