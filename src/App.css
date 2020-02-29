@@ -41,6 +41,15 @@ a:active,
 a:hover {
 	outline: 0;
 }
+
+a,
+a:hover,
+a:focus,
+a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
 h1 {
 	font-size: 2em;
 }
@@ -208,6 +217,10 @@ p {
 	color: #454f63;
 }
 
+a {
+	color: #959dad;
+}
+
 .btn {
 	font-size: 1.3rem;
 	font-weight: 700;
@@ -316,10 +329,11 @@ p {
 
 .thoughtsContainer {
 	padding-top: 134.5px;
+	padding-bottom: 43px;
 }
 
 .thoughtsContainer ul {
-	padding-top: 2.5rem;
+	padding: 2.5rem 0;
 	list-style: none;
 }
 
@@ -367,4 +381,35 @@ p {
 	font-size: 1.3rem;
 	color: #454f63;
 	font-weight: 700;
+}
+
+/********************/
+/*** NAV ***/
+/********************/
+
+.nav {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background: #fff;
+	box-shadow: 0 4px 16px rgba(69, 91, 99, 0.08);
+}
+
+.nav {
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+}
+
+.nav a {
+	width: calc(100% / 3);
+	text-align: center;
+	padding: 1.5rem 0 1rem 0;
+	text-transform: uppercase;
+	font-size: 1.1rem;
+}
+
+.active {
+	color: #454f63;
+	border-bottom: 5px solid #665eff;
 }
