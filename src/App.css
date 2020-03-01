@@ -337,6 +337,22 @@ a {
 	list-style: none;
 }
 
+.fab {
+	background: #665eff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	position: fixed;
+	bottom: 60px;
+	right: 15px;
+	box-shadow: 0 4px 16px rgba(69, 91, 99, 0.2);
+	color: #fff;
+	font-size: 1.4rem;
+}
+
 /********************/
 /*** CARD ***/
 /********************/

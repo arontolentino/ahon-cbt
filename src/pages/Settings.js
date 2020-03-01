@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import Nav from '../components/Nav';
+import Header from '../components/Header';
 
 class Settings extends Component {
 	state = {};
 	render() {
-		return <h1>Settings</h1>;
+		return (
+			<div className="settings">
+				<Header title="Settings" />
+
+				<Nav />
+			</div>
+		);
 	}
 }
 

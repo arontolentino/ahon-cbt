@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 import Header from '../components/Header';
 import Nav from '../components/Nav';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 class Thoughts extends Component {
 	state = {
 		data: []
 	};
 
+	newThought = () => {};
+
 	render() {
 		return (
 			<div className="thoughts">
 				<Header title="Thoughts" />
-
 				<div className="container thoughtsContainer">
+					<Link to="/thoughts/new-entry">
+						<div class="fab">
+							<FontAwesomeIcon icon={faPlus} />
+						</div>
+					</Link>
+
 					<ul>
 						<li className="card">
 							<div className="cardHeader">
