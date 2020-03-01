@@ -24,6 +24,7 @@ import EntryDetail from './pages/entry/EntryDetail';
 class App extends Component {
 	state = {
 		thoughts: [],
+		automaticThought: '',
 		user: null
 	};
 
@@ -65,6 +66,12 @@ class App extends Component {
 		firebase.auth().signOut();
 	};
 
+	setEntryDetails = e => {
+		this.setState({
+			[e.target.name]: e.target.value
+		});
+	};
+
 	render() {
 		return (
 			<Router>
@@ -82,7 +89,16 @@ class App extends Component {
 						render={() => <Thoughts thoughts={this.state.thoughts} />}
 					/>
 
-					<Route path="/thoughts/new-entry/" exact component={Entry} />
+					<Route
+						path="/thoughts/new-entry/"
+						exact
+						render={() => (
+							<Entry
+								setEntryDetails={this.setEntryDetails}
+								automaticThought={this.state.automaticThought}
+							/>
+						)}
+					/>
 
 					<Route path="/learn" component={Learn} />
 					<Route path="/settings" component={Settings} />
