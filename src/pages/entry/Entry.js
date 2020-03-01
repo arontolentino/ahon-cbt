@@ -1,9 +1,32 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+import Nav from '../../components/Nav';
+import Header from '../../components/Header';
 
 class Entry extends Component {
 	state = {};
 	render() {
-		return <h1>Entry</h1>;
+		return (
+			<div className="entry">
+				<Header title="Thoughts" />
+
+				<div className="container withHeader">
+					<div className="entryContent">
+						<h2>Automatic Thoughts</h2>
+						<p>What's going on?</p>
+						<textarea rows="5" cols="16"></textarea>
+					</div>
+					<div className="entryBtns">
+						<Link to="/thoughts" className="btn cancelBtn">
+							Cancel
+						</Link>
+						<button className="btn">Next</button>
+					</div>
+				</div>
+				<Nav />
+			</div>
+		);
 	}
 }
 

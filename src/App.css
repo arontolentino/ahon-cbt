@@ -203,22 +203,26 @@ html {
 body {
 	font-family: 'Montserrat';
 	background-color: #f7f7fa;
+	color: #454f63;
 }
 
 h1 {
 	font-size: 4rem;
 	font-weight: 800;
-	color: #454f63;
 }
 
 p {
 	font-size: 1.4rem;
 	line-height: 2.4rem;
-	color: #454f63;
 }
 
 a {
 	color: #959dad;
+}
+
+textarea {
+	font-size: 1.4rem;
+	resize: none;
 }
 
 .btn {
@@ -231,6 +235,7 @@ a {
 	border: none;
 	padding: 1.5rem 0;
 	width: 100%;
+	text-align: center;
 }
 
 .btnSecondary {
@@ -239,15 +244,19 @@ a {
 
 .backBtn {
 	font-size: 2rem;
-	color: #454f63;
-	margin-bottom: 1.5rem;
+	margin-bottom: 2rem;
 }
 
 .authBackBtn {
 	position: absolute;
 	top: 5rem;
 	font-size: 2rem;
-	color: #454f63;
+}
+
+.cancelBtn {
+	margin-right: 1rem;
+	width: 17.5rem;
+	background: #707070;
 }
 
 .container {
@@ -255,6 +264,11 @@ a {
 	padding: 2.5rem;
 	background-color: #f7f7fa;
 	display: flex;
+}
+
+.withHeader {
+	padding-top: 134.5px;
+	padding-bottom: 43px;
 }
 
 /**************/
@@ -324,13 +338,43 @@ a {
 }
 
 /****************/
-/*** THOUGHTS ***/
+/*** NEW ENTRY ***/
 /****************/
 
-.thoughtsContainer {
-	padding-top: 134.5px;
-	padding-bottom: 43px;
+.entry .container {
+	flex-direction: column;
 }
+
+.entryContent {
+	display: flex;
+	flex-direction: column;
+	padding: 2.5rem 0;
+	width: 100%;
+}
+
+.entryContent h2 {
+	font-size: 2.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.entryContent p {
+	margin-bottom: 1.25rem;
+	color: #78849e;
+}
+
+.entryContent textarea {
+	border: none;
+	border-radius: 10px;
+	padding: 1.7rem;
+}
+
+.entryBtns {
+	display: flex;
+}
+
+/****************/
+/*** THOUGHTS ***/
+/****************/
 
 .thoughtsContainer ul {
 	padding: 2.5rem 0;

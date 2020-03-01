@@ -78,12 +78,14 @@ class App extends Component {
 
 					<Route
 						path="/thoughts"
+						exact
 						render={() => <Thoughts thoughts={this.state.thoughts} />}
 					/>
+
+					<Route path="/thoughts/new-entry/" exact component={Entry} />
+
 					<Route path="/learn" component={Learn} />
 					<Route path="/settings" component={Settings} />
-
-					<Route path="/thoughts/:id" component={EntryDetail} />
 
 					<Route path="/entry" exact component={Entry} />
 					<Route path="/entry/distortions" component={EntryDistortions} />

@@ -18,7 +18,7 @@ class Thoughts extends Component {
 		return (
 			<div className="thoughts">
 				<Header title="Thoughts" />
-				<div className="container thoughtsContainer">
+				<div className="container thoughtsContainer withHeader">
 					<Link to="/thoughts/new-entry">
 						<div class="fab">
 							<FontAwesomeIcon icon={faPlus} />
