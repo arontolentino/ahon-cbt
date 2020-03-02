@@ -154,8 +154,11 @@ class App extends Component {
 						path="/thoughts/new-entry/summary"
 						render={() => (
 							<EntrySummary
-								setEntryDetails={this.setEntryDetails}
+								automaticThought={this.state.automaticThought}
+								selectedDistortions={this.state.selectedDistortions}
+								challengeThought={this.state.challengeThought}
 								alternativeThought={this.state.alternativeThought}
+								result={this.state.result}
 							/>
 						)}
 					/>
