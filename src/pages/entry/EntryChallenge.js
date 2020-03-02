@@ -13,26 +13,42 @@ class EntryChallenge extends Component {
 				<div className="container withHeader">
 					<div className="entryContent">
 						<div className="entryHeader">
-							<h2>Automatic Thoughts</h2>
-							<h4>What's going on?</h4>
+							<h2>Challenge the thought</h2>
+							<h4>
+								What could you be wrong about? Is there something you don’t have
+								enough evidence for?
+							</h4>
 						</div>
 
-						<textarea
-							rows="4"
-							cols="16"
-							name="automaticThought"
-							placeholder="ex. I suck at React!"
-							value={this.props.automaticThought}
-							onChange={e => {
-								this.props.setEntryDetails(e);
-							}}
-						></textarea>
+						<div className="entryThought">
+							<h3>Your Thought</h3>
+							<div className="thoughtContainer">
+								<p>{this.props.automaticThought}</p>
+							</div>
+						</div>
+
+						<div className="entryThought">
+							<h3>Your Challenge</h3>
+							<textarea
+								rows="2"
+								cols="16"
+								name="challenge"
+								placeholder="Ex. Well… maybe everyone sucks at React at this point. It’s not just me. "
+								value={this.props.challenge}
+								onChange={e => {
+									this.props.setEntryDetails(e);
+								}}
+							></textarea>
+						</div>
 					</div>
 					<div className="entryBtns">
-						<Link to="/thoughts" className="btn cancelBtn">
-							Cancel
+						<Link
+							to="/thoughts/new-entry/distortions"
+							className="btn cancelBtn"
+						>
+							Back
 						</Link>
-						<Link to="/thoughts/new-entry/distortions" className="btn">
+						<Link to="/thoughts/new-entry/alternative" className="btn">
 							Next
 						</Link>
 					</div>

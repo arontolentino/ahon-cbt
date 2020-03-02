@@ -149,7 +149,9 @@ class EntryDistortions extends Component {
 						<Link to="/thoughts/new-entry" className="btn cancelBtn">
 							Back
 						</Link>
-						<button className="btn">Next</button>
+						<Link to="/thoughts/new-entry/challenge" className="btn">
+							Next
+						</Link>
 					</div>
 				</div>
 				<Nav />

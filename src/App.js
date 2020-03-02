@@ -25,6 +25,7 @@ class App extends Component {
 		thoughts: [],
 		automaticThought: '',
 		selectedDistortions: [],
+		challenge: '',
 		user: null
 	};
 
@@ -111,6 +112,16 @@ class App extends Component {
 						render={() => (
 							<EntryDistortions
 								setSelectedDistortions={this.setSelectedDistortions}
+								automaticThought={this.state.automaticThought}
+							/>
+						)}
+					/>
+
+					<Route
+						path="/thoughts/new-entry/challenge"
+						render={() => (
+							<EntryChallenge
+								setEntryDetails={this.setEntryDetails}
 								automaticThought={this.state.automaticThought}
 							/>
 						)}

@@ -374,6 +374,7 @@ textarea {
 	border: none;
 	border-radius: 10px;
 	padding: 1.7rem;
+	width: 100%;
 }
 
 .entryThought {
