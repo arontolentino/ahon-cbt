@@ -47,7 +47,6 @@ a:hover,
 a:focus,
 a:active {
 	text-decoration: none;
-	color: inherit;
 }
 
 h1 {
@@ -223,6 +222,8 @@ a {
 textarea {
 	font-size: 1.4rem;
 	resize: none;
+	color: #454f63;
+	line-height: 2.4rem;
 }
 
 .btn {
@@ -357,8 +358,15 @@ textarea {
 	margin-bottom: 0.5rem;
 }
 
-.entryContent p {
-	margin-bottom: 1.25rem;
+.entryContent h3 {
+	font-size: 1.8rem;
+	margin-bottom: 1.5rem;
+}
+
+.entryContent h4 {
+	font-size: 1.4rem;
+	font-weight: 500;
+	margin-bottom: 2rem;
 	color: #78849e;
 }
 
@@ -368,8 +376,19 @@ textarea {
 	padding: 1.7rem;
 }
 
+.entryThought {
+	margin-bottom: 1.5rem;
+}
+
+.thoughtContainer {
+	background: #fff;
+	padding: 1rem 1.5rem;
+	border-radius: 10px;
+}
+
 .entryBtns {
 	display: flex;
+	margin-bottom: 2rem;
 }
 
 /****************/
@@ -472,4 +491,33 @@ textarea {
 .active {
 	color: #454f63;
 	border-bottom: 5px solid #665eff;
+}
+
+/********************/
+/*** DISTORTIONS ***/
+/********************/
+
+.distortionsInput {
+	display: none;
+}
+
+.distortionsInput:checked + .distortionsLabel .card {
+	color: #fff;
+	background: #665eff;
+}
+
+.distortionsInput:checked + .distortionsLabel .cardResult {
+	background: #7871ff;
+}
+
+.distortionsInput:checked + .distortionsLabel .cardResult p {
+	color: #fff;
+}
+
+.distortionsLabel .cardResult {
+	margin-top: 1rem;
+}
+
+.distortionsContainer:not(:last-child) {
+	margin-bottom: 2rem;
 }

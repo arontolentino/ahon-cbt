@@ -19,12 +19,12 @@ import EntryChallenge from './pages/entry/EntryChallenge';
 import EntryDistortions from './pages/entry/EntryDistortions';
 import EntryResult from './pages/entry/EntryResult';
 import EntrySummary from './pages/entry/EntrySummary';
-import EntryDetail from './pages/entry/EntryDetail';
 
 class App extends Component {
 	state = {
 		thoughts: [],
 		automaticThought: '',
+		selectedDistortions: [],
 		user: null
 	};
 
@@ -72,6 +72,12 @@ class App extends Component {
 		});
 	};
 
+	setSelectedDistortions = selectedDistortions => {
+		this.setState({
+			selectedDistortions
+		});
+	};
+
 	render() {
 		return (
 			<Router>
@@ -95,6 +101,16 @@ class App extends Component {
 						render={() => (
 							<Entry
 								setEntryDetails={this.setEntryDetails}
+								automaticThought={this.state.automaticThought}
+							/>
+						)}
+					/>
+
+					<Route
+						path="/thoughts/new-entry/distortions"
+						render={() => (
+							<EntryDistortions
+								setSelectedDistortions={this.setSelectedDistortions}
 								automaticThought={this.state.automaticThought}
 							/>
 						)}

@@ -12,13 +12,17 @@ class Entry extends Component {
 
 				<div className="container withHeader">
 					<div className="entryContent">
-						<h2>Automatic Thoughts</h2>
-						<p>What's going on?</p>
+						<div className="entryHeader">
+							<h2>Automatic Thoughts</h2>
+							<h4>What's going on?</h4>
+						</div>
+
 						<textarea
-							rows="5"
+							rows="4"
 							cols="16"
 							name="automaticThought"
-							defaultValue={this.props.automaticThought}
+							placeholder="ex. I suck at React!"
+							value={this.props.automaticThought}
 							onChange={e => {
 								this.props.setEntryDetails(e);
 							}}
@@ -28,7 +32,9 @@ class Entry extends Component {
 						<Link to="/thoughts" className="btn cancelBtn">
 							Cancel
 						</Link>
-						<button className="btn">Next</button>
+						<Link to="/thoughts/new-entry/distortions" className="btn">
+							Next
+						</Link>
 					</div>
 				</div>
 				<Nav />
