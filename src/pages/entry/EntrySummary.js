@@ -42,7 +42,11 @@ class EntrySummary extends Component {
 						<Link to="/thoughts/new-entry/result" className="btn cancelBtn">
 							Back
 						</Link>
-						<Link to="/thoughts" className="btn">
+						<Link
+							to="/thoughts"
+							className="btn"
+							onClick={this.props.createThought}
+						>
 							Save
 						</Link>
 					</div>

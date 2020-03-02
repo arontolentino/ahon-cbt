@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import moment from 'moment';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import firebase from './config/firebase';
 
@@ -32,7 +34,11 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-		const db = firebase.firestore();
+		this.authListener();
+		this.fetchThoughts();
+	}
+
+	authListener = () => {
 		const auth = firebase.auth();
 
 		// Firebase Auth listener
@@ -41,8 +47,11 @@ class App extends Component {
 				this.setState({ user: user.uid });
 			}
 		});
+	};
 
-		// Firestore real-time DB listener
+	fetchThoughts = () => {
+		const db = firebase.firestore();
+
 		db.collection('thoughts')
 			.orderBy('date')
 			.onSnapshot(querySnapshot => {
@@ -59,10 +68,28 @@ class App extends Component {
 				this.setState({
 					thoughts: newThoughts
 				});
-
-				console.log(this.state.thoughts);
 			});
-	}
+	};
+
+	createThought = () => {
+		const db = firebase.firestore();
+
+		db.collection('thoughts')
+			.add({
+				date: new Date(),
+				automaticThought: this.state.automaticThought,
+				selectedDistortions: this.state.selectedDistortions,
+				challengeThought: this.state.challengeThought,
+				alternativeThought: this.state.alternativeThought,
+				result: this.state.result
+			})
+			.then(function() {
+				console.log('Document successfully written!');
+			})
+			.catch(function(error) {
+				console.error('Error writing document: ', error);
+			});
+	};
 
 	onLogout = e => {
 		// e.preventDefault();
@@ -159,6 +186,7 @@ class App extends Component {
 								challengeThought={this.state.challengeThought}
 								alternativeThought={this.state.alternativeThought}
 								result={this.state.result}
+								createThought={this.createThought}
 							/>
 						)}
 					/>

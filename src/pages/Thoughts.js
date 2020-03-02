@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import moment from 'moment';
+
 import Header from '../components/Header';
 import Nav from '../components/Nav';
 
@@ -24,21 +26,24 @@ class Thoughts extends Component {
 					</Link>
 
 					<ul>
-						<li className="card">
-							<div className="cardHeader">
-								<p className="cardTitle">Thought</p>
-								<p classname="cardTime">Feb 20, 2020 | 10:50PM</p>
-							</div>
-							<div className="cardContent">
-								<p>
-									It’s okay to not be an expert with React right now. I have my
-									whole life to practice now that I am a developer.{' '}
-								</p>
-							</div>
-							<div className="cardResult">
-								<p>Felt better after recording</p>
-							</div>
-						</li>
+						{this.props.thoughts.map(thought => (
+							<li className="card" key={thought.id}>
+								<div className="cardHeader">
+									<p className="cardTitle">Thought</p>
+									<p classname="cardTime">
+										{moment(new Date(thought.data.date.seconds * 1000)).format(
+											'MMMM DD, YYYY | h:mm a'
+										)}
+									</p>
+								</div>
+								<div className="cardContent">
+									<p>{thought.data.alternativeThought}</p>
+								</div>
+								<div className="cardResult">
+									<p>{thought.data.result}</p>
+								</div>
+							</li>
+						))}
 					</ul>
 				</div>
 
