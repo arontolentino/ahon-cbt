@@ -53,7 +53,7 @@ class App extends Component {
 		const db = firebase.firestore();
 
 		db.collection('thoughts')
-			.orderBy('date')
+			.orderBy('date', 'desc')
 			.onSnapshot(querySnapshot => {
 				const newThoughts = [];
 
