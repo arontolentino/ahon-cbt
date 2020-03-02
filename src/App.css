@@ -522,3 +522,37 @@ textarea {
 .distortionsContainer:not(:last-child) {
 	margin-bottom: 2rem;
 }
+
+/********************/
+/*** RESULTS ***/
+/********************/
+
+.result {
+	justify-content: center;
+	height: 100vh;
+}
+
+.result .entryContent {
+	text-align: center;
+}
+
+.resultContainer {
+	margin-bottom: 2rem;
+}
+
+.resultInput {
+	display: none;
+}
+
+.resultOption {
+	text-align: center;
+	width: 100%;
+	background: #fff;
+	border-radius: 10px;
+	padding: 1rem 0;
+}
+
+.resultInput:checked + .resultLabel .resultOption {
+	background: #665eff;
+	color: #fff;
+}

@@ -25,7 +25,9 @@ class App extends Component {
 		thoughts: [],
 		automaticThought: '',
 		selectedDistortions: [],
-		challenge: '',
+		challengeThought: '',
+		alternativeThought: '',
+		result: '',
 		user: null
 	};
 
@@ -79,6 +81,12 @@ class App extends Component {
 		});
 	};
 
+	setEntryResult = entryResult => {
+		this.setState({
+			result: entryResult
+		});
+	};
+
 	render() {
 		return (
 			<Router>
@@ -86,7 +94,6 @@ class App extends Component {
 					<Route path="/" exact component={Splash} />
 
 					<Route path="/login" component={Login} />
-
 					<Route path="/register" component={Register} />
 					<Route path="/walkthrough" component={Walkthrough} />
 
@@ -123,6 +130,32 @@ class App extends Component {
 							<EntryChallenge
 								setEntryDetails={this.setEntryDetails}
 								automaticThought={this.state.automaticThought}
+								challengeThought={this.state.challengeThought}
+							/>
+						)}
+					/>
+
+					<Route
+						path="/thoughts/new-entry/alternative"
+						render={() => (
+							<EntryAlternative
+								setEntryDetails={this.setEntryDetails}
+								alternativeThought={this.state.alternativeThought}
+							/>
+						)}
+					/>
+
+					<Route
+						path="/thoughts/new-entry/result"
+						render={() => <EntryResult setEntryResult={this.setEntryResult} />}
+					/>
+
+					<Route
+						path="/thoughts/new-entry/summary"
+						render={() => (
+							<EntrySummary
+								setEntryDetails={this.setEntryDetails}
+								alternativeThought={this.state.alternativeThought}
 							/>
 						)}
 					/>
@@ -130,12 +163,7 @@ class App extends Component {
 					<Route path="/learn" component={Learn} />
 					<Route path="/settings" component={Settings} />
 
-					<Route path="/entry" exact component={Entry} />
-					<Route path="/entry/distortions" component={EntryDistortions} />
-					<Route path="/entry/challenge" component={EntryChallenge} />
-					<Route path="/entry/alternative" component={EntryAlternative} />
 					<Route path="/entry/result" component={EntryResult} />
-					<Route path="/entry/summary" component={EntrySummary} />
 				</Switch>
 			</Router>
 		);

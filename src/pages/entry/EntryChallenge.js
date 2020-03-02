@@ -32,9 +32,9 @@ class EntryChallenge extends Component {
 							<textarea
 								rows="2"
 								cols="16"
-								name="challenge"
+								name="challengeThought"
 								placeholder="Ex. Well… maybe everyone sucks at React at this point. It’s not just me. "
-								value={this.props.challenge}
+								value={this.props.challengeThought}
 								onChange={e => {
 									this.props.setEntryDetails(e);
 								}}
