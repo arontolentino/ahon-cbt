@@ -57,7 +57,7 @@ class App extends Component {
 
 		db.collection('thoughts')
 			.where('uid', '==', this.state.user)
-			// .orderBy('date', 'desc')
+			.orderBy('date', 'desc')
 			.onSnapshot(querySnapshot => {
 				const newThoughts = [];
 
@@ -90,6 +90,7 @@ class App extends Component {
 			})
 			.then(function() {
 				console.log('Document successfully written!');
+				this.resetEntryDetails();
 			})
 			.catch(function(error) {
 				console.error('Error writing document: ', error);
@@ -105,6 +106,18 @@ class App extends Component {
 		this.setState({
 			[e.target.name]: e.target.value
 		});
+	};
+
+	resetEntryDetails = () => {
+		this.setState({
+			automaticThought: 'yah',
+			selectedDistortions: [],
+			challengeThought: '',
+			alternativeThought: '',
+			result: ''
+		});
+
+		console.log('Entry details reset!');
 	};
 
 	setSelectedDistortions = selectedDistortions => {
