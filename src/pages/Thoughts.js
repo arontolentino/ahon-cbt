@@ -20,7 +20,7 @@ class Thoughts extends Component {
 				<Header title="Thoughts" />
 				<div className="container thoughtsContainer withHeader">
 					<Link to="/thoughts/new-entry">
-						<div class="fab">
+						<div className="fab">
 							<FontAwesomeIcon icon={faPlus} />
 						</div>
 					</Link>
@@ -30,7 +30,7 @@ class Thoughts extends Component {
 							<li className="card" key={thought.id}>
 								<div className="cardHeader">
 									<p className="cardTitle">Thought</p>
-									<p classname="cardTime">
+									<p className="cardTime">
 										{moment(new Date(thought.data.date.seconds * 1000)).format(
 											'MMMM DD, YYYY | h:mm a'
 										)}

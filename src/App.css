@@ -272,6 +272,13 @@ textarea {
 	padding-bottom: 43px;
 }
 
+.option {
+	width: 100%;
+	background: #fff;
+	border-radius: 10px;
+	padding: 1rem 2rem;
+}
+
 /**************/
 /*** SPLASH ***/
 /**************/
@@ -545,15 +552,21 @@ textarea {
 	display: none;
 }
 
-.resultOption {
+.entryResult .option {
 	text-align: center;
-	width: 100%;
-	background: #fff;
-	border-radius: 10px;
-	padding: 1rem 0;
 }
 
-.resultInput:checked + .resultLabel .resultOption {
+.resultInput:checked + .resultLabel .option {
 	background: #665eff;
 	color: #fff;
+}
+
+/********************/
+/*** SETTINGS ***/
+/********************/
+
+.settingsContainer ul {
+	margin: 2.5rem 0;
+	list-style: none;
+	width: 100%;
 }

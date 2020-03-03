@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import moment from 'moment';
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import firebase from './config/firebase';
 
@@ -23,15 +21,18 @@ import EntryResult from './pages/entry/EntryResult';
 import EntrySummary from './pages/entry/EntrySummary';
 
 class App extends Component {
-	state = {
-		thoughts: [],
-		automaticThought: '',
-		selectedDistortions: [],
-		challengeThought: '',
-		alternativeThought: '',
-		result: '',
-		user: null
-	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			thoughts: [],
+			automaticThought: null,
+			selectedDistortions: [],
+			challengeThought: null,
+			alternativeThought: null,
+			result: null,
+			user: null
+		};
+	}
 
 	componentDidMount() {
 		this.authListener();
@@ -53,8 +54,6 @@ class App extends Component {
 	fetchThoughts = () => {
 		const db = firebase.firestore();
 
-		console.log(this.state.user);
-
 		db.collection('thoughts')
 			.where('uid', '==', this.state.user)
 			.orderBy('date', 'desc')
@@ -62,7 +61,6 @@ class App extends Component {
 				const newThoughts = [];
 
 				querySnapshot.forEach(function(doc) {
-					console.log(doc.data());
 					newThoughts.push({
 						data: doc.data(),
 						id: doc.id
@@ -88,18 +86,13 @@ class App extends Component {
 				alternativeThought: this.state.alternativeThought,
 				result: this.state.result
 			})
-			.then(function() {
+			.then(() => {
 				console.log('Document successfully written!');
 				this.resetEntryDetails();
 			})
 			.catch(function(error) {
 				console.error('Error writing document: ', error);
 			});
-	};
-
-	onLogout = e => {
-		// e.preventDefault();
-		firebase.auth().signOut();
 	};
 
 	setEntryDetails = e => {
@@ -110,11 +103,7 @@ class App extends Component {
 
 	resetEntryDetails = () => {
 		this.setState({
-			automaticThought: 'yah',
-			selectedDistortions: [],
-			challengeThought: '',
-			alternativeThought: '',
-			result: ''
+			automaticThought: null
 		});
 
 		console.log('Entry details reset!');
@@ -137,17 +126,14 @@ class App extends Component {
 			<Router>
 				<Switch>
 					<Route path="/" exact component={Splash} />
-
 					<Route path="/login" component={Login} />
 					<Route path="/register" component={Register} />
 					<Route path="/walkthrough" component={Walkthrough} />
-
 					<Route
 						path="/thoughts"
 						exact
 						render={() => <Thoughts thoughts={this.state.thoughts} />}
 					/>
-
 					<Route
 						path="/thoughts/new-entry/"
 						exact
@@ -158,7 +144,6 @@ class App extends Component {
 							/>
 						)}
 					/>
-
 					<Route
 						path="/thoughts/new-entry/distortions"
 						render={() => (
@@ -168,7 +153,6 @@ class App extends Component {
 							/>
 						)}
 					/>
-
 					<Route
 						path="/thoughts/new-entry/challenge"
 						render={() => (
@@ -179,7 +163,6 @@ class App extends Component {
 							/>
 						)}
 					/>
-
 					<Route
 						path="/thoughts/new-entry/alternative"
 						render={() => (
@@ -189,12 +172,10 @@ class App extends Component {
 							/>
 						)}
 					/>
-
 					<Route
 						path="/thoughts/new-entry/result"
 						render={() => <EntryResult setEntryResult={this.setEntryResult} />}
 					/>
-
 					<Route
 						path="/thoughts/new-entry/summary"
 						render={() => (
@@ -208,10 +189,8 @@ class App extends Component {
 							/>
 						)}
 					/>
-
 					<Route path="/learn" component={Learn} />
 					<Route path="/settings" component={Settings} />
-
 					<Route path="/entry/result" component={EntryResult} />
 				</Switch>
 			</Router>

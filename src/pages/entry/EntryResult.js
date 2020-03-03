@@ -34,7 +34,7 @@ class EntryResult extends Component {
 									}}
 								/>
 								<label htmlFor={option} className="resultLabel">
-									<div class="resultOption">
+									<div class="option">
 										<p>{option}</p>
 									</div>
 								</label>
