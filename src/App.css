@@ -450,12 +450,22 @@ textarea {
 	font-size: 1.2rem;
 }
 
-.cardTitle {
+.cardCategory {
 	text-transform: uppercase;
 }
 
 .cardContent {
-	padding: 1.5rem 2rem;
+	padding: 0 2rem;
+}
+
+.cardTitle {
+	font-size: 1.6rem;
+	font-weight: 700;
+	margin-top: 1rem;
+}
+
+.cardDesc {
+	margin-bottom: 0.5rem;
 }
 
 .cardResult {
@@ -569,4 +579,30 @@ textarea {
 	margin: 2.5rem 0;
 	list-style: none;
 	width: 100%;
+}
+
+/********************/
+/*** LEARN ***/
+/********************/
+
+.categoryList {
+	margin: 2.5rem 0;
+}
+
+.category:not(:last-child) {
+	margin-bottom: 2rem;
+}
+
+.categoryTitle {
+	font-size: 2.2rem;
+	margin-bottom: 1.5rem;
+}
+
+.learn ul {
+	width: 100%;
+	list-style: none;
+}
+
+.learn .container {
+	flex-direction: column;
 }

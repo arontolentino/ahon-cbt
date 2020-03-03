@@ -29,15 +29,15 @@ class Thoughts extends Component {
 						{this.props.thoughts.map(thought => (
 							<li className="card" key={thought.id}>
 								<div className="cardHeader">
-									<p className="cardTitle">Thought</p>
+									<p className="cardCategory">Thought</p>
 									<p className="cardTime">
 										{moment(new Date(thought.data.date.seconds * 1000)).format(
-											'MMMM DD, YYYY | h:mm a'
+											'MMMM D, YYYY | h:mm a'
 										)}
 									</p>
 								</div>
 								<div className="cardContent">
-									<p>{thought.data.alternativeThought}</p>
+									<p className="cardDesc">{thought.data.alternativeThought}</p>
 								</div>
 								<div className="cardResult">
 									<p>{thought.data.result}</p>
