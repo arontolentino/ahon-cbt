@@ -399,6 +399,7 @@ textarea {
 .thoughtsContainer ul {
 	padding: 2.5rem 0;
 	list-style: none;
+	width: 100%;
 }
 
 .fab {

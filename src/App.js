@@ -35,7 +35,6 @@ class App extends Component {
 
 	componentDidMount() {
 		this.authListener();
-		this.fetchThoughts();
 	}
 
 	authListener = () => {
@@ -44,7 +43,9 @@ class App extends Component {
 		// Firebase Auth listener
 		auth.onAuthStateChanged(user => {
 			if (user) {
-				this.setState({ user: user.uid });
+				this.setState({ user: user.uid }, () => {
+					this.fetchThoughts();
+				});
 			}
 		});
 	};
@@ -52,8 +53,11 @@ class App extends Component {
 	fetchThoughts = () => {
 		const db = firebase.firestore();
 
+		console.log(this.state.user);
+
 		db.collection('thoughts')
-			.orderBy('date', 'desc')
+			.where('uid', '==', this.state.user)
+			// .orderBy('date', 'desc')
 			.onSnapshot(querySnapshot => {
 				const newThoughts = [];
 
@@ -77,6 +81,7 @@ class App extends Component {
 		db.collection('thoughts')
 			.add({
 				date: new Date(),
+				uid: this.state.user,
 				automaticThought: this.state.automaticThought,
 				selectedDistortions: this.state.selectedDistortions,
 				challengeThought: this.state.challengeThought,
