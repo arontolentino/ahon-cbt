@@ -216,7 +216,7 @@ p {
 }
 
 a {
-	color: #959dad;
+	color: inherit;
 }
 
 textarea {
@@ -409,6 +409,10 @@ textarea {
 	width: 100%;
 }
 
+.thoughts .cardDesc {
+	padding: 1rem 0 0.5rem 0;
+}
+
 .fab {
 	background: #665eff;
 	display: flex;
@@ -558,6 +562,10 @@ textarea {
 	margin-bottom: 2rem;
 }
 
+.resultContainer .option {
+	text-align: center;
+}
+
 .resultInput {
 	display: none;
 }
@@ -603,6 +611,67 @@ textarea {
 	list-style: none;
 }
 
+.learn .category a {
+	margin-bottom: 2rem;
+}
+
 .learn .container {
 	flex-direction: column;
+}
+
+/********************/
+/*** ARTICLE ***/
+/********************/
+
+.articleContainer {
+	margin: 2.5rem 0;
+}
+
+.articleContent {
+	background: #fff;
+	border-radius: 10px;
+	padding: 2rem 2rem;
+}
+
+.article h3 {
+	font-size: 1.8rem;
+	margin-bottom: 1rem;
+}
+
+.article h2 {
+	font-size: 2.2rem;
+	margin-bottom: 1rem;
+}
+
+.article p {
+	margin-bottom: 1.5rem;
+}
+
+@media only screen and (min-width: 426px) {
+	#root {
+		background: #f7f7fa;
+	}
+
+	.splash,
+	.auth {
+		max-width: 425px;
+		margin: 0 auto;
+	}
+
+	.authBackBtn {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 769px) {
+	.entry .container,
+	.thoughts .container,
+	.learn .container,
+	.settings .container,
+	.article .container {
+		max-width: 750px;
+		margin: 0 auto;
+
+		justify-content: center;
+	}
 }

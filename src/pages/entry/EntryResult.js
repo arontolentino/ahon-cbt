@@ -6,7 +6,11 @@ import Header from '../../components/Header';
 
 class EntryResult extends Component {
 	state = {
-		resultOptions: ['Better than before', 'About the same', 'Worse than before']
+		resultOptions: [
+			'Felt better after recording',
+			'Felt the same after recording',
+			'Felt worse after recording'
+		]
 	};
 
 	render() {

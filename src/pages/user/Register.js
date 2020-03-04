@@ -21,7 +21,6 @@ class Register extends Component {
 			.auth()
 			.createUserWithEmailAndPassword(email, password)
 			.then(() => {
-				console.log('User is created!');
 				this.setState({});
 			})
 			.catch(error => {
@@ -30,7 +29,6 @@ class Register extends Component {
 	};
 
 	onInputValueChange = e => {
-		console.log(e.target.value);
 		this.setState({
 			[e.target.name]: e.target.value
 		});

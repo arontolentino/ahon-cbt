@@ -14,14 +14,11 @@ class Login extends Component {
 		e.preventDefault();
 
 		const { email, password } = this.state;
-		console.log(email);
-		console.log(password);
 
 		firebase
 			.auth()
 			.signInWithEmailAndPassword(email, password)
 			.then(() => {
-				console.log('User is signed in!');
 				this.setState({});
 				this.props.history.push('/thoughts');
 			})
@@ -31,7 +28,6 @@ class Login extends Component {
 	};
 
 	onInputValueChange = e => {
-		console.log(e.target.value);
 		this.setState({
 			[e.target.name]: e.target.value
 		});

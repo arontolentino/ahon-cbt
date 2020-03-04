@@ -20,7 +20,7 @@ class Settings extends Component {
 
 				<div className="container settingsContainer withHeader">
 					<ul>
-						<li class="option" onClick={this.onLogOut}>
+						<li className="option" onClick={this.onLogOut}>
 							<p>Log Out</p>
 						</li>
 					</ul>

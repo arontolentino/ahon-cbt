@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import firebase from './config/firebase';
+import butter from './config/butter';
 
 import Splash from './pages/user/Splash';
 import Login from './pages/user/Login';
@@ -19,26 +21,39 @@ import EntryChallenge from './pages/entry/EntryChallenge';
 import EntryDistortions from './pages/entry/EntryDistortions';
 import EntryResult from './pages/entry/EntryResult';
 import EntrySummary from './pages/entry/EntrySummary';
+import ThoughtDetail from './pages/ThoughtDetail';
+
+import DistortionArticle from './pages/DistortionArticle';
+import GetStartedArticle from './pages/GetStartedArticle';
+import EntryDetail from './pages/entry/EntryDetail';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			thoughts: [],
+
+			learningGetStarted: [],
+			learningDistortions: [],
+
+			selectedArticle: null,
+
 			automaticThought: null,
 			selectedDistortions: [],
 			challengeThought: null,
 			alternativeThought: null,
 			result: null,
+
 			user: null
 		};
 	}
 
 	componentDidMount() {
-		this.authListener();
+		this.initApp();
+		this.fetchLearningContent();
 	}
 
-	authListener = () => {
+	initApp = () => {
 		const auth = firebase.auth();
 
 		// Firebase Auth listener
@@ -49,6 +64,30 @@ class App extends Component {
 				});
 			}
 		});
+	};
+
+	fetchLearningContent = () => {
+		butter.content
+			.retrieve(['ahon-get-started'])
+			.then(resp => {
+				this.setState({
+					learningGetStarted: resp.data.data['ahon-get-started']
+				});
+			})
+			.catch(function(resp) {
+				console.log(resp);
+			});
+
+		butter.content
+			.retrieve(['ahon-distortions'])
+			.then(resp => {
+				this.setState({
+					learningDistortions: resp.data.data['ahon-distortions']
+				});
+			})
+			.catch(function(resp) {
+				console.log(resp);
+			});
 	};
 
 	fetchThoughts = () => {
@@ -121,6 +160,18 @@ class App extends Component {
 		});
 	};
 
+	fetchArticle = slug => {
+		console.log(this.state.learningDistortions);
+
+		const selectedArticle = this.state.learningDistortions.filter(
+			article => article.slug === slug
+		);
+
+		this.setState({
+			selectedArticle: selectedArticle[0]
+		});
+	};
+
 	render() {
 		return (
 			<Router>
@@ -129,11 +180,17 @@ class App extends Component {
 					<Route path="/login" component={Login} />
 					<Route path="/register" component={Register} />
 					<Route path="/walkthrough" component={Walkthrough} />
+
+					{/* THOUGHTS ROUTES */}
 					<Route
 						path="/thoughts"
 						exact
 						render={() => <Thoughts thoughts={this.state.thoughts} />}
 					/>
+
+					<Route path="/entry/:id" component={EntryDetail} />
+
+					{/* NEW ENTRY ROUTES */}
 					<Route
 						path="/thoughts/new-entry/"
 						exact
@@ -144,6 +201,7 @@ class App extends Component {
 							/>
 						)}
 					/>
+
 					<Route
 						path="/thoughts/new-entry/distortions"
 						render={() => (
@@ -153,6 +211,7 @@ class App extends Component {
 							/>
 						)}
 					/>
+
 					<Route
 						path="/thoughts/new-entry/challenge"
 						render={() => (
@@ -163,6 +222,7 @@ class App extends Component {
 							/>
 						)}
 					/>
+
 					<Route
 						path="/thoughts/new-entry/alternative"
 						render={() => (
@@ -172,10 +232,12 @@ class App extends Component {
 							/>
 						)}
 					/>
+
 					<Route
 						path="/thoughts/new-entry/result"
 						render={() => <EntryResult setEntryResult={this.setEntryResult} />}
 					/>
+
 					<Route
 						path="/thoughts/new-entry/summary"
 						render={() => (
@@ -189,9 +251,31 @@ class App extends Component {
 							/>
 						)}
 					/>
-					<Route path="/learn" component={Learn} />
+
+					{/* LEARN ROUTES */}
+					<Route
+						path="/learn"
+						exact
+						render={() => (
+							<Learn
+								learningGetStarted={this.state.learningGetStarted}
+								learningDistortions={this.state.learningDistortions}
+							/>
+						)}
+					/>
+
+					<Route
+						path="/learn/distortions/:slug"
+						component={DistortionArticle}
+					/>
+
+					<Route
+						path="/learn/get-started/:slug"
+						component={GetStartedArticle}
+					/>
+
+					{/* SETTINGS ROUTES */}
 					<Route path="/settings" component={Settings} />
-					<Route path="/entry/result" component={EntryResult} />
 				</Switch>
 			</Router>
 		);

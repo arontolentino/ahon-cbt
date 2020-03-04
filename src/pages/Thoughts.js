@@ -28,20 +28,24 @@ class Thoughts extends Component {
 					<ul>
 						{this.props.thoughts.map(thought => (
 							<li className="card" key={thought.id}>
-								<div className="cardHeader">
-									<p className="cardCategory">Thought</p>
-									<p className="cardTime">
-										{moment(new Date(thought.data.date.seconds * 1000)).format(
-											'MMMM D, YYYY | h:mm a'
-										)}
-									</p>
-								</div>
-								<div className="cardContent">
-									<p className="cardDesc">{thought.data.alternativeThought}</p>
-								</div>
-								<div className="cardResult">
-									<p>{thought.data.result}</p>
-								</div>
+								<Link to={`/entry/${thought.id}`}>
+									<div className="cardHeader">
+										<p className="cardCategory">Thought</p>
+										<p className="cardTime">
+											{moment(
+												new Date(thought.data.date.seconds * 1000)
+											).format('MMMM D, YYYY | h:mm a')}
+										</p>
+									</div>
+									<div className="cardContent">
+										<p className="cardDesc">
+											{thought.data.alternativeThought}
+										</p>
+									</div>
+									<div className="cardResult">
+										<p>{thought.data.result}</p>
+									</div>
+								</Link>
 							</li>
 						))}
 					</ul>
