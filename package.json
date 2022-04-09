@@ -13,7 +13,7 @@
     "buttercms": "^1.2.2",
     "firebase": "^7.9.1",
     "font-awesome": "^4.7.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
